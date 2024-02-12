@@ -1,0 +1,270 @@
+/* Global Styles */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navigation */
+  .nav-bar {
+    background-color: white;
+    color: darkgreen;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px black;
+    width: 100%;
+    position:fixed;
+  }
+  
+  .nav-bar a {
+    color: darkgreen;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  .nav-bar a:hover{
+    text-decoration: underline;
+  }
+  
+  #logo {
+    margin-right: 10px;
+  }
+  
+  /* Home Section */
+  #home {
+    background-image: url('https://static.wixstatic.com/media/60bf17_487aa883880f46eabc8a0ad8a86959a2~mv2.jpg/v1/fill/w_1920,h_372,al_t,q_85,usm_0.66_1.00_0.01,enc_auto/60bf17_487aa883880f46eabc8a0ad8a86959a2~mv2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+   
+  }
+  
+  #home h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  #home-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Projects Section */
+  #projecto {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  #projects {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:60px;
+    justify-content: space-around;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px; */
+    height: 150vh;
+  }
+  
+  .project-a,
+  .project-b,
+  .project-c,
+  .project-d,
+  .project-e,
+  .project-f {
+    flex-shrink: 1;
+flex-basis: 25%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
+  .project-a:hover,.project-b:hover,.project-c:hover
+  ,.project-d:hover
+  ,.project-e:hover
+  ,.project-f:hover
+  {
+    border: 2px solid green;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .project-a h1,
+  .project-b h1,
+  .project-c h1,
+  .project-d h1,
+  .project-e h1,
+  .project-f h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .project-a p,
+  .project-b p,
+  .project-c p,
+  .project-d p,
+  .project-e p,
+  .project-f p {
+    margin-bottom: 10px;
+  }
+  
+  /* Impact Assessments Section */
+  #impacto {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  #impact {
+    height:100vh;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #impact h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: darkgreen;
+  }
+  
+  #impact p {
+    margin-bottom: 10px;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  /* Volunteer Section */
+  #volunteer {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .login {
+    /* max-width: 400px; */
+    margin: 0 auto;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width:1100px;
+  }
+ 
+  
+  
+  
+  .main{
+    height: 100vh;
+    
+  }
+  
+  
+ 
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    #projects {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+    /* Table Styles */
+    #recordsTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    #recordsTable th,
+    #recordsTable td {
+      padding: 10px;
+      text-align: left;
+    }
+    #recordsTable th {
+      background-color: darkgreen;
+      color: #fff;
+    }
+    #recordsTable tr:nth-child(even) {
+      background-color: #E8F5E9;
+    }
+    #recordsTable tr:hover {
+      background-color: #C8E6C9;
+    }
+  
+    /* Form Styles */
+    #volunteerForm {
+      /* max-width: 400px; */
+      width:900px;
+      margin: 20px 0;
+      background-color: #E8F5E9;
+      border-radius: 6px;
+      padding: 70px;
+    }
+    #volunteerForm label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+    #volunteerForm input[type="text"],
+    #volunteerForm input[type="email"],
+    #volunteerForm input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #B2DFDB;
+      border-radius: 4px;
+    }
+    #volunteerForm button {
+      padding:10px;
+      background-color: darkgreen;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 920px;
+    }
+    #volunteerForm button:hover {
+      background-color: #388E3C;
+    }
+  
+    /* Edit and Delete Button Styles */
+    .editButton,
+    .deleteButton {
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+    .editButton:hover,
+    .deleteButton:hover {
+      background-color: #388E3C;
+    }
