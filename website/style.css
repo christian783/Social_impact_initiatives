@@ -62,11 +62,13 @@ body {
   
   #home-button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: darkgreen;
     color: #fff;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    height: 60px;
+    border-radius: 10px;
   }
   
   /* Projects Section */
@@ -253,10 +255,9 @@ flex-basis: 25%;
     }
   
     /* Edit and Delete Button Styles */
-    .editButton,
-    .deleteButton {
+    td > button {
       padding: 8px 12px;
-      background-color: #4CAF50;
+      background-color:darkgreen;
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -264,7 +265,6 @@ flex-basis: 25%;
       font-size: 12px;
       margin-right: 5px;
     }
-    .editButton:hover,
-    .deleteButton:hover {
+    td > button:hover {
       background-color: #388E3C;
     }
