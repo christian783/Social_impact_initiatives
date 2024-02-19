@@ -36,7 +36,6 @@ body {
   .nav-bar a:hover{
     text-decoration: underline;
   }
-
   
   #logo {
     margin-right: 10px;
@@ -88,9 +87,6 @@ body {
     grid-gap: 20px; */
     height: 150vh;
   }
-  .sub-class > h1{
-    color:darkgreen;
-  }
   
   .project-a,
   .project-b,
@@ -103,7 +99,7 @@ flex-basis: 25%;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    box-shadow: 1px 1px 1px 1pX gray;
+    box-shadow: 1px 1px 1px 1px black;
   }
   .project-a:hover,.project-b:hover,.project-c:hover
   ,.project-d:hover
