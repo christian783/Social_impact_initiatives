@@ -1,54 +1,59 @@
-var form = document.getElementById('volunteerForm');
-var table = document.getElementById('recordsTable');
+$(document).ready(function() {
+  var form = $('#volunteerForm');
+  var table = $('#recordsTable');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
+  form.on('submit', function(e) {
+    e.preventDefault();
 
-  var formData = new FormData(form);
+    var formData = new FormData(form[0]);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'submit.php', true);
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      displayVolunteer(JSON.parse(xhr.responseText));
-      form.reset();
-    }
-  };
-  xhr.send(formData);
+    $.ajax({
+      url: 'submit.php',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(data) {
+        displayVolunteer(JSON.parse(data));
+        form[0].reset();
+      }
+    });
+  });
+
+  function displayVolunteer(volunteer) {
+    var row = $('<tr></tr>');
+    row.html(`
+      <td>${volunteer.firstName}</td>
+      <td>${volunteer.lastName}</td>
+      <td>${volunteer.email}</td>
+      <td>$${volunteer.amount}</td>
+      <td>
+        <button class="editBtn">Edit</button>
+        <button class="deleteBtn">Delete</button>
+      </td>
+    `);
+
+    table.append(row);
+  }
+
+  $(document).on('click', '.editBtn', function() {
+    var row = $(this).closest('tr');
+    var cells = row.find('td');
+
+    var firstName = cells.eq(0).text();
+    var lastName = cells.eq(1).text();
+    var email = cells.eq(2).text();
+    var amount = cells.eq(3).text().replace('$', '');
+
+    form.find('input[name="firstName"]').val(firstName);
+    form.find('input[name="lastName"]').val(lastName);
+    form.find('input[name="email"]').val(email);
+    form.find('input[name="amount"]').val(amount);
+
+    row.remove();
+  });
+
+  $(document).on('click', '.deleteBtn', function() {
+    $(this).closest('tr').remove();
+  });
 });
-
-function displayVolunteer(volunteer) {
-  var row = table.insertRow(-1);
-  row.innerHTML = `
-    <td>${volunteer.firstName}</td>
-    <td>${volunteer.lastName}</td>
-    <td>${volunteer.email}</td>
-    <td>$${volunteer.amount}</td>
-    <td>
-      <button onclick="editVolunteer(this)">Edit</button>
-      <button onclick="deleteVolunteer(this)">Delete</button>
-    </td>
-  `;
-}
-
-function editVolunteer(button) {
-  var row = button.parentNode.parentNode;
-  var cells = row.getElementsByTagName('td');
-
-  var firstName = cells[0].textContent;
-  var lastName = cells[1].textContent;
-  var email = cells[2].textContent;
-  var amount = cells[3].textContent.replace('$', '');
-
-  form.firstName.value = firstName;
-  form.lastName.value = lastName;
-  form.email.value = email;
-  form.amount.value = amount;
-
-  row.remove();
-}
-
-function deleteVolunteer(button) {
-  var row = button.parentNode.parentNode;
-  row.remove();
-}
