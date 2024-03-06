@@ -99,7 +99,7 @@ flex-basis: 25%;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
   }
   .project-a:hover,.project-b:hover,.project-c:hover
   ,.project-d:hover
@@ -281,3 +281,49 @@ flex-basis: 25%;
      color: white;
      font-size: larger;
     }
+    #search-table{
+      display: flex;
+      gap: 20px;
+      width:800px;
+      
+      height:30px;
+    }
+    #search-table > form {
+      display: flex;
+      gap: 20px;
+      width:800px;
+      
+      height:30px;
+    }
+    #search-table  button{
+      width: 60px;
+      background-color: darkgreen;
+      color:white;
+      border-radius: 5px;
+      border-color: transparent;
+    }
+    #search-table  input{
+      flex: 1;
+      width: 200px;
+      border: 1px solid #B2DFDB;
+      border-radius: 4px;
+
+    }
+    .table-form{
+      display: flex;
+      gap: 30px;
+    }
+    .table-form > input{
+      width:200px;
+      height:30px;
+      border: 1px solid #B2DFDB;
+      border-radius: 4px;
+    }
+    .table-form > button{
+      width: 80px;
+      background-color: darkgreen;
+      color:white;
+      border-radius: 5px;
+      border-color: transparent; 
+    }
+    
