@@ -40,10 +40,14 @@ if ($action === 'create') {
 
         echo json_encode($volunteer);
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql ."<br>" . $conn->error;
     }
 } elseif ($action === 'read') {
     // Handle read operation
+    $page = $_POST['page'];
+    $itemsPerPage = 5;
+    $offset = ($page - 1) * $itemsPerPage;
+
     // Retrieve the data from the database
     $sql = "SELECT * FROM volunteers";
     $result = $conn->query($sql);

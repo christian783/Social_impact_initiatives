@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var form = $('#volunteerForm');
   var table = $('#recordsTable');
-
+  var currentPage = 1;
   // Create
   form.on('submit', function (e) {
     e.preventDefault();
@@ -29,19 +29,25 @@ $(document).ready(function () {
     $.ajax({
       url: 'submit.php',
       type: 'POST',
-      data: { action: 'read' },
-      success: function (data) {
+      data: {
+        action: 'read',
+        page: currentPage
+      },
+      success: function(data) {
         displayVolunteers(JSON.parse(data));
       },
     });
   }
 
   function displayVolunteers(volunteers) {
+    var startIndex = (currentPage - 1) * 5;
+    var endIndex = startIndex + 5;
+    var displayedVolunteers = volunteers.slice(startIndex, endIndex);
     table.empty(); // Clear existing table rows
 
-    if (volunteers.length > 0) {
-      for (var i = 0; i < volunteers.length; i++) {
-        var volunteer = volunteers[i];
+    if (displayedVolunteers.length > 0) {
+      for (var i = 0; i < displayedVolunteers.length; i++) {
+        var volunteer = displayedVolunteers[i];
 
         var row = $('<tr></tr>');
         row.html(`
@@ -57,6 +63,24 @@ $(document).ready(function () {
 
         table.append(row);
       }
+    }
+    displayPagination(volunteers.length);
+  }
+  
+  function displayPagination(totalVolunteers) {
+    var totalPages = Math.ceil(totalVolunteers / 5);
+    var paginationContainer = $('#paginationContainer');
+    paginationContainer.empty(); // Clear existing pagination buttons
+  
+    for (var i = 1; i <= totalPages; i++) {
+      var button = $('<button></button>').text(i);
+      button.data('page', i);
+      button.on('click', function() {
+        currentPage = $(this).data('page');
+        loadVolunteers();
+      });
+  
+      paginationContainer.append(button);
     }
   }
 

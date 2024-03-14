@@ -51,11 +51,12 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color:#fff;
    
   }
   
   #home h1 {
+    text-shadow: 0 0 8px #000;
     font-size: 36px;
     margin-bottom: 20px;
   }
@@ -70,7 +71,6 @@ body {
     height: 60px;
     border-radius: 10px;
   }
-  
   /* Projects Section */
   #projecto {
     padding: 40px 0;
@@ -284,16 +284,16 @@ flex-basis: 25%;
     #search-table{
       display: flex;
       gap: 20px;
-      width:800px;
+      width:1042px;
       
       height:30px;
     }
     #search-table > form {
       display: flex;
       gap: 20px;
-      width:800px;
+      width:1042px;
       
-      height:30px;
+      height:35px;
     }
     #search-table  button{
       width: 60px;
@@ -301,6 +301,9 @@ flex-basis: 25%;
       color:white;
       border-radius: 5px;
       border-color: transparent;
+    }
+    #search-table  button:hover{
+      opacity:0.7;
     }
     #search-table  input{
       flex: 1;
@@ -326,4 +329,18 @@ flex-basis: 25%;
       border-radius: 5px;
       border-color: transparent; 
     }
-    
+    #paginationContainer{
+      margin-top:20px;
+      display: flex;
+      gap: 10px;
+    }
+    #paginationContainer > button {
+      background-color: darkgreen;
+      width:30px;
+      height:30px;
+      border-color: transparent;
+      color:white;
+    }
+    #paginationContainer > button:hover{
+      opacity: 0.7;
+    }
